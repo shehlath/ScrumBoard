@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+  <script src="main.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app="app">
+  <div ng-controller="TaskController as vm">
+    <table style="width:100%" >
+      <thead>
+        <th>To Do</th>
+        <th>In Progress</th>
+        <th>Done</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <div ng-repeat="todo in vm.myList.toDo">
+            <p>{{todo.name}}</p>
+            <p>{{todo.desc}}</p>
+            <button type="button" name="button">Move to In Progress</button>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+    </table>
+    <br><br>
+
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" name="Name" ng-model="vm.name"></td>
+      </tr>
+      <br>
+      <tr>
+        <td>Description:</td>
+        <td><input type="text" name="description" ng-model="vm.desc"></td>
+        <br>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button ng-click="vm.newTask()">Submit</button>
+          <button type="Reset" value="Reset" ng-click="vm.hello();">Reset</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+<table style="width:100%" >
+<tr>
+
+<th>To Do</th>
+<th>In Progress</th>
+<th>Done</th>
+
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<br><br>
+
+<form id="form">
+<table>
+<tr>
+<td>Name:</td>
+<td><input type="text" name="Name" id="name"></td>
+</tr>
+<br>
+<tr>
+<td>Description:</td>
+<td><input type="text" name="description" id="desc"></td>
+<br>
+</tr>
+<tr>
+<td colspan="2">
+<input type="submit" value="Submit" onclick="addData()">
+<button type="Reset" value="Reset">Reset</button>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html> -->
