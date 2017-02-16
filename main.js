@@ -1,23 +1,15 @@
 var app = angular.module("app", []);
 app.controller("TaskController", function() {
   var vm = this;
-  console.log('call');
-  vm.myList = {
+  vm.taskList = {
     toDo:[],
     inProgress:[],
     done:[]
   };
 
-  vm.hello = function(){
-    console.log('hello');
-  };
-
-  vm.hello();
-
-
   vm.newTask = function(){
     console.log('call');
-    vm.myList.toDo.push({
+    vm.taskList.toDo.push({
       name: vm.name,
       desc: vm.desc
     });
@@ -25,8 +17,12 @@ app.controller("TaskController", function() {
     vm.name = '';
     vm.desc = '';
 
-    console.log(vm.myList);
+    console.log(vm.taskList);
 
+  };
+
+  vm.moveTask = function(){
+    console.log('call');
   };
 
 });
