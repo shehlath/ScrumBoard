@@ -16,14 +16,25 @@
       <tbody>
       <tr>
         <td>
-          <div ng-repeat="todo in vm.taskList.toDo">
+          <div id=div ng-repeat="todo in vm.taskList.toDo">
             <p>{{todo.name}}</p>
             <p>{{todo.desc}}</p>
-            <button type="button" name="button" ng-click="moveTask()">Move to In Progress</button>
+            <button ng-click="vm.moveTask('todo',todo.id)">Move to In Progress</button>
           </div>
         </td>
-        <td></td>
-        <td></td>
+        <td>
+          <div id=div ng-repeat="todo in vm.taskList.inProgress">
+            <p>{{todo.name}}</p>
+            <p>{{todo.desc}}</p>
+            <button ng-click="vm.moveTask('inProgress',todo.id)">Move to Done</button>
+          </div>
+        </td>
+        <td>
+          <div id=div ng-repeat="todo in vm.taskList.done">
+            <p>{{todo.name}}</p>
+            <p>{{todo.desc}}</p>
+            
+          </div></td>
       </tr>
     </tbody>
     </table>
