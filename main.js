@@ -8,7 +8,6 @@ app.controller("TaskController", function() {
   };
 
   vm.newTask = function(){
-    console.log('call');
     vm.taskList.toDo.push({
       id: guid(),
       name: vm.name,
@@ -18,15 +17,11 @@ app.controller("TaskController", function() {
     vm.name = '';
     vm.desc = '';
 
-    console.log(vm.taskList);
-
   };
 
   vm.moveTask = function(type, id){
-    console.log('call');
     var temp;
-
-    if(type==='todo'){
+    if(type === 'todo'){
       for(var i = 0; i < vm.taskList.toDo.length; i++){
         var obj = vm.taskList.toDo[i];
 
