@@ -1,5 +1,6 @@
-var app = angular.module("app", []);
-app.controller("TaskController", function() {
+'use strict';
+var app = angular.module('app', []);
+app.controller('TaskController', function() {
   var vm = this;
   vm.taskList = {
     toDo:[],
@@ -23,9 +24,9 @@ app.controller("TaskController", function() {
     var temp;
     if(type === 'todo'){
       for(var i = 0; i < vm.taskList.toDo.length; i++){
-        var obj = vm.taskList.toDo[i];
+        var task = vm.taskList.toDo[i];
 
-        if(obj.id === id)
+        if(task.id === id)
         {
           temp = vm.taskList.toDo.splice(i,1);
         }
@@ -35,12 +36,12 @@ app.controller("TaskController", function() {
     }
 
     if(type==='inProgress'){
-      for(var i = 0; i < vm.taskList.inProgress.length; i++){
-        var obj = vm.taskList.inProgress[i];
+      for(var j = 0; j < vm.taskList.inProgress.length; j++){
+        var task1 = vm.taskList.inProgress[j];
 
-        if(obj.id === id)
+        if(task1.id === id)
         {
-          temp = vm.taskList.inProgress.splice(i,1);
+          temp = vm.taskList.inProgress.splice(j,1);
         }
       }
       vm.taskList.done.push(temp[0]);
