@@ -3,8 +3,7 @@
 describe('Controller: TaskController', function () {
   beforeEach(module('app'));
 
-  var MainCtrl,
-    scope;
+  var MainCtrl,scope;
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     MainCtrl = $controller('TaskController', {
@@ -14,5 +13,9 @@ describe('Controller: TaskController', function () {
 
   it('controller should be defined', function () {
     expect(MainCtrl).toBeDefined();
+  });
+
+  it('newTask function should exist',function(){
+    expect(scope.newTask).toBeDefined();
   });
 });
