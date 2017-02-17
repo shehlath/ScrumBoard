@@ -2,65 +2,65 @@
 <html lang="en">
 <head>
   <script src="bower_components/angular/angular.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 <body ng-app="app">
 
-  <div ng-controller="TaskController as vm">
+  <div ng-controller="TaskController">
     <script src="scripts/controllers/main.js"></script>
-    <table style="width:100%" >
+    <table style="width:100%">
       <thead>
         <th>To Do</th>
         <th>In Progress</th>
         <th>Done</th>
       </thead>
       <tbody>
-      <tr>
-        <td>
-          <div class="div" ng-repeat="todo in vm.taskList.toDo">
-            <p>Name: {{todo.name}}</p>
-            <p>Description: {{todo.desc}}</p>
-            <button ng-click="vm.moveTask('todo',todo.id)">Move to In Progress</button>
-          </div>
-        </td>
-        <td>
-          <div class="div" ng-repeat="inprogress in vm.taskList.inProgress">
-            <p>Name: {{inprogress.name}}</p>
-            <p>Description: {{inprogress.desc}}</p>
-            <button ng-click="vm.moveTask('inProgress',inprogress.id)">Move to Done</button>
-          </div>
-        </td>
-        <td>
-          <div class="div" ng-repeat="done in vm.taskList.done">
-            <p>Name: {{done.name}}</p>
-            <p>Description: {{done.desc}}</p>
+        <tr>
+          <td>
+            <div class="div" ng-repeat="todo in taskList.toDo">
+              <p>Name: {{todo.name}}</p>
+              <p>Description: {{todo.desc}}</p>
+              <button ng-click="moveTask('todo',todo.id)">Move to In Progress</button>
+            </div>
+          </td>
+          <td>
+            <div class="div" ng-repeat="inprogress in taskList.inProgress">
+              <p>Name: {{inprogress.name}}</p>
+              <p>Description: {{inprogress.desc}}</p>
+              <button ng-click="moveTask('inProgress',inprogress.id)">Move to Done</button>
+            </div>
+          </td>
+          <td>
+            <div class="div" ng-repeat="done in taskList.done">
+              <p>Name: {{done.name}}</p>
+              <p>Description: {{done.desc}}</p>
 
-          </div></td>
-      </tr>
-    </tbody>
-    </table>
-    <br><br>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+      <br><br>
 
-    <table>
-      <tr>
-        <td>Name:</td>
-        <td><input type="text" name="Name" ng-model="vm.name"></td>
-      </tr>
-      <br>
-      <tr>
-        <td>Description:</td>
-        <td><input type="text" name="description" ng-model="vm.desc"></td>
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td><input type="text" name="Name" ng-model="name"></td>
+        </tr>
         <br>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <button ng-click="vm.newTask()">Submit</button>
-          <button type="Reset" value="Reset">Reset</button>
-        </td>
-      </tr>
-    </table>
+        <tr>
+          <td>Description:</td>
+          <td><input type="text" name="desc" ng-model="desc"></td>
+          <br>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button ng-click="newTask()">Submit</button>
+            <button type="Reset" value="Reset">Reset</button>
+          </td>
+        </tr>
+      </table>
 
-  </div>
+    </div>
 
-</body>
-</html>
+  </body>
+  </html>

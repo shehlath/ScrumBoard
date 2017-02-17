@@ -1,55 +1,52 @@
 'use strict';
 var app = angular.module('app', []);
-app.controller('TaskController', function() {
-  var vm = this;
-  vm.taskList = {
+app.controller('TaskController', function($scope) {
+  $scope.taskList = {
     toDo:[],
     inProgress:[],
     done:[]
   };
 
-  vm.newTask = function(){
-    vm.taskList.toDo.push({
+  $scope.newTask = function(){
+    $scope.taskList.toDo.push({
       id: guid(),
-      name: vm.name,
-      desc: vm.desc
+      name: $scope.name,
+      desc: $scope.desc
     });
 
-    vm.name = '';
-    vm.desc = '';
+    $scope.name = '';
+    $scope.desc = '';
 
   };
 
-  vm.moveTask = function(type, id){
+  $scope.moveTask = function(type, id){
     var temp;
     if(type === 'todo'){
-      for(var i = 0; i < vm.taskList.toDo.length; i++){
-        var task = vm.taskList.toDo[i];
+      for(var i = 0; i < $scope.taskList.toDo.length; i++){
+        var task = $scope.taskList.toDo[i];
 
         if(task.id === id)
         {
-          temp = vm.taskList.toDo.splice(i,1);
+          temp = $scope.taskList.toDo.splice(i,1);
         }
       }
-      vm.taskList.inProgress.push(temp[0]);
+      $scope.taskList.inProgress.push(temp[0]);
 
     }
 
     if(type==='inProgress'){
-      for(var j = 0; j < vm.taskList.inProgress.length; j++){
-        var task1 = vm.taskList.inProgress[j];
+      for(var j = 0; j < $scope.taskList.inProgress.length; j++){
+        var task1 = $scope.taskList.inProgress[j];
 
         if(task1.id === id)
         {
-          temp = vm.taskList.inProgress.splice(j,1);
+          temp = $scope.taskList.inProgress.splice(j,1);
         }
       }
-      vm.taskList.done.push(temp[0]);
+      $scope.taskList.done.push(temp[0]);
 
     }
-
-
-  };
+};
 
   function guid() {
     function s4() {
